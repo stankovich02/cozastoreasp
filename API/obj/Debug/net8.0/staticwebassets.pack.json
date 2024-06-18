@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\images\\products\\443c5526-40a5-481d-88a8-32b272ea1161.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\443c5526-40a5-481d-88a8-32b272ea1161.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\images\\products\\9d9f5273-2b50-4125-861a-54d0dcfe0b63.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\9d9f5273-2b50-4125-861a-54d0dcfe0b63.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\images\\products\\d5671340-eafc-493e-b172-fb0c8d2f63c9.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\d5671340-eafc-493e-b172-fb0c8d2f63c9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\images\\users\\85638bda-af2d-4b1c-a4ac-af1c8c393db5.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\85638bda-af2d-4b1c-a4ac-af1c8c393db5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\images\\users\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marko\\OneDrive\\Desktop\\CozaStore_ASP\\CozaStore\\API\\wwwroot\\temp\\ea4f64d1-cc25-407c-a2d0-b278776767f0.jpg",
+      "PackagePath": "staticwebassets\\temp\\ea4f64d1-cc25-407c-a2d0-b278776767f0.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

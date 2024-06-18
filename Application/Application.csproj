@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="UseCases\Commands\Carts\" />
+    <Folder Include="UseCases\Commands\Images\" />
+    <Folder Include="UseCases\Commands\UserBillingAddresses\" />
+    <Folder Include="UseCases\Commands\Wishlists\" />
+    <Folder Include="UseCases\Commands\Reviews\" />
+    <Folder Include="UseCases\Commands\Prices\" />
+    <Folder Include="UseCases\Commands\Orders\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+  </ItemGroup>
+
+</Project>
