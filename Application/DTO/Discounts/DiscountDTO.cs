@@ -10,5 +10,6 @@ namespace Application.DTO.Discounts
         public int DiscountPercent { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace Application.DTO.Reviews
         public int Rate { get; set; }
         public string User { get; set; }
         public DateTime ReviewedAt { get; set; }
+        public string Status { get; set; }
     }
 }

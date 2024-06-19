@@ -37,6 +37,7 @@ namespace Implementation.UseCases.Queries.PaymentTypes
             {
                 Id = x.Id,
                 Name = x.Name,
+                Status = x.IsActive ? "Active" : "Inactive"
             }).ToList());
         }
     }

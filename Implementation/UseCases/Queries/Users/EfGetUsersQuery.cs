@@ -57,7 +57,8 @@ namespace Implementation.UseCases.Queries.Users
                Email = x.Email,
                Id = x.Id,
                OrdersCount = x.Orders.Count(),
-               ImagePath = x.Image.Path
+               ImagePath = x.Image.Path,
+               Status = x.IsActive ? "Active" : "Inactive"
            }).ToList());
         }
     }

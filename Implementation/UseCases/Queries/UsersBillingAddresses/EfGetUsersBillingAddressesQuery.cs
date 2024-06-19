@@ -58,7 +58,8 @@ namespace Implementation.UseCases.Queries.UsersBillingAddresses
               Country = x.Country,
               Phone = x.Phone,
               User = x.User.Username,
-              ZipCode = x.ZipCode
+              ZipCode = x.ZipCode,
+              Status = x.IsActive ? "Active" : "Inactive"
            }).ToList());
         }
     }

@@ -35,6 +35,7 @@ namespace Implementation.UseCases.Queries.Sizes
             {
                 Id = x.Id,
                 Name = x.Name,
+                Status = x.IsActive ? "Active" : "Inactive"
             }).ToList());
         }
     }

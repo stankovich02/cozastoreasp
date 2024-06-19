@@ -55,6 +55,7 @@ namespace Implementation.UseCases.Queries.Products
              Discount = x.Discounts.Where(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive).Select(d => d.DiscountPercent).FirstOrDefault(),
              Images = x.Images.Select(x => x.Image.Path).ToList(),
              InStock = x.Available > 0,
+             Status = x.IsActive ? "Active" : "Inactive"
              Name = x.Name,
              Price = x.Prices.Where(y => y.DateTo == null && y.IsActive).Select(p => new ProductPriceDTO
              {

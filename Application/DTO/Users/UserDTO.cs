@@ -13,5 +13,6 @@ namespace Application.DTO.Users
         public string Email { get; set; }
         public string ImagePath { get; set; }
         public int OrdersCount { get; set; }
+        public string Status { get; set; }
     }
 }

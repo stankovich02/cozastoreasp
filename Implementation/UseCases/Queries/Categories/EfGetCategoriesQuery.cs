@@ -37,6 +37,7 @@ namespace Implementation.UseCases.Queries.Categories
             {
                 Id = x.Id,
                 Name = x.Name,
+                Status = x.IsActive ? "Active" : "Inactive"
             }).ToList());
         }
     }

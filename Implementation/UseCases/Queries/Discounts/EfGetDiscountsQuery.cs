@@ -58,6 +58,7 @@ namespace Implementation.UseCases.Queries.Discounts
              DiscountPercent = x.DiscountPercent,
              DateFrom = x.DateFrom,
              DateTo = x.DateTo,
+             Status = x.IsActive ? "Active" : "Inactive"
           }).ToList());
         }
     }

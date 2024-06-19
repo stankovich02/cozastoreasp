@@ -36,6 +36,7 @@ namespace Implementation.UseCases.Queries.Colors
             {
                 Id = x.Id,
                 Name = x.Name,
+                Status = x.IsActive ? "Active" : "Inactive"
             }).ToList());
         }
     }

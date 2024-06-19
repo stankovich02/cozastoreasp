@@ -20,6 +20,7 @@ namespace Application.DTO.Products
         public List<string> Images { get; set; }
         public List<ReviewDTO> Reviews { get; set; }
         public decimal AverageRating { get; set; }
+        public string Status { get; set; }
 
     }
     public class ProductPriceDTO

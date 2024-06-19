@@ -58,7 +58,8 @@ namespace Implementation.UseCases.Queries.Reviews
                Rate = x.Rate,
                ReviewedAt = x.CreatedAt,
                ReviewText = x.ReviewText,
-               User = x.User.Username
+               User = x.User.Username,
+               Status = x.IsActive ? "Active" : "Inactive"
             }).ToList());
         }
     }
