@@ -14,6 +14,6 @@ namespace Implementation
         public string LastName => "unauthorized";
         public string Username => "unauthorized";
         public string Email => "unauthorized";
-        public IEnumerable<int> AllowedUseCases => new List<int> { 1,38 };
+        public IEnumerable<int> AllowedUseCases => new List<int> { 1, 9, 13, 25, 26, 27, 28, 29, 33, 38 };
     }
 }

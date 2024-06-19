@@ -44,12 +44,28 @@ namespace Implementation.UseCases.Commands.Users
                     {
                         new() { UseCaseId = 3 },
                         new() { UseCaseId = 5 },
+                        new() { UseCaseId = 9 },
+                        new() { UseCaseId = 13 },
+                        new() { UseCaseId = 25 },
+                        new() { UseCaseId = 26 },
+                        new() { UseCaseId = 27 },
+                        new() { UseCaseId = 28 },
+                        new() { UseCaseId = 29 },
+                        new() { UseCaseId = 33 },
+                        new() { UseCaseId = 38 },
                         new() { UseCaseId = 41 },
                         new() { UseCaseId = 42 },
                         new() { UseCaseId = 43 },
                         new() { UseCaseId = 45 },
                         new() { UseCaseId = 46 },
                         new() { UseCaseId = 47 },
+                        new() { UseCaseId = 49 },
+                        new() { UseCaseId = 51 },
+                        new() { UseCaseId = 52 },
+                        new() { UseCaseId = 53 },
+                        new() { UseCaseId = 54 },
+                        new() { UseCaseId = 56 },
+                        new() { UseCaseId = 57 },
                     }
                 };
             });
