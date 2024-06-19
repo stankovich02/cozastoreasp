@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IKJiq1s38dzVl3xZpXSSl16IA873625Gc3AxvbEGQj8=",
+  "Hash": "e3llcLDPsK2YPWACAH745wnHmgVNlPQywoPYt5B2L7E=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -167,25 +167,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\users\\default.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\marko\\source\\repos\\cozastoreasp\\API\\wwwroot\\temp\\ea4f64d1-cc25-407c-a2d0-b278776767f0.jpg",
-      "SourceId": "API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\marko\\source\\repos\\cozastoreasp\\API\\wwwroot\\",
-      "BasePath": "_content/API",
-      "RelativePath": "temp/ea4f64d1-cc25-407c-a2d0-b278776767f0.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\temp\\ea4f64d1-cc25-407c-a2d0-b278776767f0.jpg"
     }
   ]
 }

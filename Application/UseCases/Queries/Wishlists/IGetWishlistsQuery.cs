@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Application.UseCases.Queries
+namespace Application.UseCases.Queries.Wishlists
 {
-    public interface IGetWishlistsQuery : IQuery<PagedResponse<WishlistDTO>,SearchWishlist>
+    public interface IGetWishlistsQuery : IQuery<PagedResponse<WishlistDTO>, SearchWishlist>
     {
     }
 }

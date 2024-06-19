@@ -1,6 +1,7 @@
 ﻿using Application.DTO.Messages;
 using Application.UseCases.Commands.Brands;
 using Application.UseCases.Commands.Messages;
+using Application.UseCases.Queries.Discounts;
 using Application.UseCases.Queries.Messages;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -28,11 +29,10 @@ namespace API.Controllers
             => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<MessagesController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetMessageQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         // POST api/<MessagesController>
         [HttpPost]

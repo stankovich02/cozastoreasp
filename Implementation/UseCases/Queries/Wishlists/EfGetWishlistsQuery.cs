@@ -1,7 +1,7 @@
 ﻿using Application.DTO;
 using Application.DTO.Carts;
 using Application.DTO.Wishlists;
-using Application.UseCases.Queries;
+using Application.UseCases.Queries.Wishlists;
 using DataAccess;
 using Domain;
 using System;

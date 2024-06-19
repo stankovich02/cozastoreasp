@@ -11,10 +11,12 @@ using System.Threading.Tasks;
 
 namespace Implementation.UseCases.Queries.Brands
 {
-    public class EfGetBrandQuery : EfUseCase,IGetBrandQuery
+    public class EfGetBrandQuery : IGetBrandQuery
     {
-        public EfGetBrandQuery(CozaStoreContext context) : base(context)
+        private readonly GenericSingleResponse _response;
+        public EfGetBrandQuery(GenericSingleResponse response)
         {
+            _response = response;
         }
 
         public int Id => 60;
@@ -23,19 +25,12 @@ namespace Implementation.UseCases.Queries.Brands
 
         public BrandDTO Execute(int search)
         {
-            Brand brand = Context.Brands.Find(search);
-
-            if(brand == null || !brand.IsActive)
-            {
-                throw new EntityNotFoundException();
-            }
-
-            return new BrandDTO
-            {
-                Id = brand.Id,
-                Name = brand.Name,
-                IsActive = brand.IsActive
-            };
+           return _response.ReturnSingle<Brand, BrandDTO>(search, entity => new BrandDTO
+           {
+               Id = entity.Id,
+               Name = entity.Name,
+               Status = entity.IsActive ? "Active" : "Inactive"
+           });
         }
     }
 }

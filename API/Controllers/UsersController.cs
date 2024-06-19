@@ -1,5 +1,6 @@
 ﻿using Application.DTO.Users;
 using Application.UseCases.Commands.Users;
+using Application.UseCases.Queries.Sizes;
 using Application.UseCases.Queries.Users;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -25,11 +26,10 @@ namespace API.Controllers
         public IActionResult Get([FromServices] IGetUsersQuery query, [FromQuery] SearchUser search)
             => Ok(_useCaseHandler.HandleQuery(query, search));
 
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [Authorize]
+        [HttpGet("{id}")]
+        public IActionResult Get(int id, [FromServices] IGetUserQuery query)
+           => Ok(_useCaseHandler.HandleQuery(query, id));
 
         [HttpPost]
         public IActionResult Post([FromBody] RegisterUserDTO dto, [FromServices] IRegisterUserCommand command)

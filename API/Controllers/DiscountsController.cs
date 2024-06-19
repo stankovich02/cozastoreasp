@@ -1,5 +1,6 @@
 ﻿using Application.DTO.Discounts;
 using Application.UseCases.Commands.Discounts;
+using Application.UseCases.Queries.Brands;
 using Application.UseCases.Queries.Discounts;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -27,11 +28,10 @@ namespace API.Controllers
          => Ok(_useCaseHandler.HandleQuery(query,search));
 
         // GET api/<DiscountController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetDiscountQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         // POST api/<DiscountController>
         [Authorize]

@@ -1,5 +1,6 @@
 ﻿using Application.DTO.Categories;
 using Application.UseCases.Commands.Categories;
+using Application.UseCases.Queries.Brands;
 using Application.UseCases.Queries.Categories;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -29,11 +30,10 @@ namespace API.Controllers
          => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<CategoriesController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetCategoryQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         // POST api/<CategoriesController>
         [Authorize]

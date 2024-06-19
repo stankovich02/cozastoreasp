@@ -1,5 +1,6 @@
 ﻿using Application.DTO.Products;
 using Application.UseCases.Commands.Products;
+using Application.UseCases.Queries.Discounts;
 using Application.UseCases.Queries.Products;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -27,10 +28,8 @@ namespace API.Controllers
 
         // GET api/<ProductsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetProductQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         // POST api/<ProductsController>
         [Authorize]

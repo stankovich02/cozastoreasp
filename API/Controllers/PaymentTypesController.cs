@@ -2,6 +2,7 @@
 using Application.DTO.PaymentTypes;
 using Application.UseCases.Commands.Brands;
 using Application.UseCases.Commands.PaymentTypes;
+using Application.UseCases.Queries.Discounts;
 using Application.UseCases.Queries.PaymentTypes;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -28,11 +29,10 @@ namespace API.Controllers
          => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<PaymentTypesController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetPaymentTypeQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         [Authorize]
         [HttpPost]

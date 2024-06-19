@@ -2,6 +2,7 @@
 using Application.DTO.Colors;
 using Application.UseCases.Commands.Brands;
 using Application.UseCases.Commands.Colors;
+using Application.UseCases.Queries.Brands;
 using Application.UseCases.Queries.Colors;
 using Application.UseCases.Queries.Genders;
 using Implementation.UseCases;
@@ -30,11 +31,10 @@ namespace API.Controllers
          => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<ColorsController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetColorQuery query)
+          => Ok(_useCaseHandler.HandleQuery(query, id));
 
         [Authorize]
         [HttpPost]

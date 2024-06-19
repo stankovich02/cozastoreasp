@@ -1,6 +1,6 @@
 ﻿using Application.DTO.Wishlists;
 using Application.UseCases.Commands.Wishlists;
-using Application.UseCases.Queries;
+using Application.UseCases.Queries.Wishlists;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Mvc;
 

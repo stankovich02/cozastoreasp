@@ -1,5 +1,6 @@
 ﻿using Application.DTO.UsersBillingAddresses;
 using Application.UseCases.Commands.UsersBillingAddresses;
+using Application.UseCases.Queries.Sizes;
 using Application.UseCases.Queries.UsersBillingAddresses;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -29,11 +30,8 @@ namespace API.Controllers
         // GET api/<UserBillingAddressesController>/5
         [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            //user moze da vidi samo svoje adrese
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetUserBillingAddressQuery query)
+        => Ok(_useCaseHandler.HandleQuery(query, id));
 
         // POST api/<UserBillingAddressesController>
         [Authorize]

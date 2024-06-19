@@ -14,7 +14,6 @@ using Application.UseCases.Commands.Sizes;
 using Application.UseCases.Commands.Users;
 using Application.UseCases.Commands.UsersBillingAddresses;
 using Application.UseCases.Commands.Wishlists;
-using Application.UseCases.Queries;
 using Application.UseCases.Queries.Brands;
 using Application.UseCases.Queries.Carts;
 using Application.UseCases.Queries.Categories;
@@ -29,6 +28,7 @@ using Application.UseCases.Queries.Reviews;
 using Application.UseCases.Queries.Sizes;
 using Application.UseCases.Queries.Users;
 using Application.UseCases.Queries.UsersBillingAddresses;
+using Application.UseCases.Queries.Wishlists;
 using Implementation.Logging.UseCases;
 using Implementation.UseCases;
 using Implementation.UseCases.Commands;
@@ -93,13 +93,14 @@ namespace API.Core
             services.AddTransient<GenericUpdateService>();
             services.AddTransient<GenericDeleteService>();
             services.AddTransient<GenericPagedResponse>();
+            services.AddTransient<GenericSingleResponse>();
 
             
             services.AddTransient<IRegisterUserCommand, EfRegisterUserCommand>();
-            
             services.AddTransient<IUpdateUserCommand, EfUpdateUserCommand>();
             services.AddTransient<IDeleteUserCommand, EfDeleteUserCommand>();
             services.AddTransient<IGetUsersQuery, EfGetUsersQuery>();
+            services.AddTransient<IGetUserQuery, EfGetUserQuery>();
             services.AddTransient<IUpdateUserImageCommand, EfUpdateUserImageCommand>();
             services.AddTransient<IUpdateUserAccessCommand, EfUpdateUserAccessCommand>();
             
@@ -107,53 +108,63 @@ namespace API.Core
             services.AddTransient<IUpdateCategoryCommand, EfUpdateCategoryCommand>();       
             services.AddTransient<IDeleteCategoryCommand, EfDeleteCategoryCommand>();
             services.AddTransient<IGetCategoriesQuery, EfGetCategoriesQuery>();
+            services.AddTransient<IGetCategoryQuery, EfGetCategoryQuery>();
 
             services.AddTransient<ICreateBrandCommand, EfCreateBrandCommand>();
             services.AddTransient<IUpdateBrandCommand, EfUpdateBrandCommand>();
             services.AddTransient<IDeleteBrandCommand, EfDeleteBrandCommand>();
             services.AddTransient<IGetBrandsQuery, EfGetBrandsQuery>();
+            services.AddTransient<IGetBrandQuery, EfGetBrandQuery>();
 
             services.AddTransient<ICreateColorCommand, EfCreateColorCommand>();   
             services.AddTransient<IUpdateColorCommand, EfUpdateColorCommand>();
             services.AddTransient<IDeleteColorCommand, EfDeleteColorCommand>();
             services.AddTransient<IGetColorsQuery, EfGetColorsQuery>();
+            services.AddTransient<IGetColorQuery, EfGetColorQuery>();
 
             services.AddTransient<ICreateGenderCommand, EfCreateGenderCommand>();
             services.AddTransient<IUpdateGenderCommand, EfUpdateGenderCommand>(); 
             services.AddTransient<IDeleteGenderCommand, EfDeleteGenderCommand>();
             services.AddTransient<IGetGendersQuery, EfGetGendersQuery>();
+            services.AddTransient<IGetGenderQuery, EfGetGenderQuery>();
 
             services.AddTransient<ICreatePaymentTypeCommand, EfCreatePaymentTypeCommand>(); 
             services.AddTransient<IUpdatePaymentTypeCommand, EfUpdatePaymentTypeCommand>();
             services.AddTransient<IDeletePaymentTypeCommand, EfDeletePaymentTypeCommand>();
             services.AddTransient<IGetPaymentTypesQuery, EfGetPaymentTypesQuery>();
+            services.AddTransient<IGetPaymentTypeQuery, EfGetPaymentTypeQuery>();
 
             services.AddTransient<ICreateSizeCommand, EfCreateSizeCommand>();
             services.AddTransient<IUpdateSizeCommand, EfUpdateSizeCommand>();     
             services.AddTransient<IDeleteSizeCommand, EfDeleteSizeCommand>();
             services.AddTransient<IGetSizesQuery, EfGetSizesQuery>();
+            services.AddTransient<IGetSizeQuery, EfGetSizeQuery>();
 
           
             services.AddTransient<ICreateProductCommand, EfCreateProductCommand>();
             services.AddTransient<IUpdateProductCommand, EfUpdateProductCommand>();
             services.AddTransient<IDeleteProductCommand, EfDeleteProductCommand>();
             services.AddTransient<IGetProductsQuery,EfGetProductsQuery>();
+            services.AddTransient<IGetProductQuery, EfGetProductQuery>();
 
            
             services.AddTransient<ICreateDiscountCommand, EfCreateDiscountCommand>();
             services.AddTransient<IUpdateDiscountCommand, EfUpdateDiscountCommand>();
             services.AddTransient<IDeleteDiscountCommand, EfDeleteDiscountCommand>();
             services.AddTransient<IGetDiscountsQuery, EfGetDiscountsQuery>();
+            services.AddTransient<IGetDiscountQuery, EfGetDiscountQuery>();
 
             
             services.AddTransient<ICreateMessageCommand, EfCreateMessageCommand>();
             services.AddTransient<IDeleteMessageCommand, EfDeleteMessageCommand>();
             services.AddTransient<IGetMessagesQuery, EfGetMessagesQuery>();
+            services.AddTransient<IGetMessageQuery, EfGetMessageQuery>();
 
             services.AddTransient<ICreateUserBillingAddressCommand,EfCreateUserBillingAddressCommand>();
             services.AddTransient<IUpdateUserBillingAddressCommand,EfUpdateUserBillingAddressCommand>();
             services.AddTransient<IDeleteUserBillingAddressCommand,EfDeleteUserBillingAddressCommand>();
             services.AddTransient<IGetUsersBillingAddressesQuery,EfGetUsersBillingAddressesQuery>();
+            services.AddTransient<IGetUserBillingAddressQuery,EfGetUserBillingAddressQuery>();
 
             services.AddTransient<ICreateCartCommand,EfAddProductToCartCommand>();
             services.AddTransient<IUpdateProductInCartCommand,EfUpdateProductInCartCommand>();
@@ -163,11 +174,13 @@ namespace API.Core
             services.AddTransient<ICreateOrderCommand,EfCreateOrderCommand>();
             services.AddTransient<IDeleteOrderCommand,EfDeleteOrderCommand>();
             services.AddTransient<IGetOrdersQuery,EfGetOrdersQuery>();
+            services.AddTransient<IGetOrderQuery,EfGetOrderQuery>();
 
             services.AddTransient<ICreateReviewCommand,EfCreateReviewCommand>();
             services.AddTransient<IDeleteReviewCommand,EfDeleteReviewCommand>();
             services.AddTransient<IUpdateReviewCommand,EfUpdateReviewCommand>();
             services.AddTransient<IGetReviewsQuery,EfGetReviewsQuery>();
+            services.AddTransient<IGetReviewQuery,EfGetReviewQuery>();
 
             services.AddTransient<IAddProductToWishlistCommand,EfAddProductToWishlistCommand>();
             services.AddTransient<IRemoveProductFromWishlistCommand,EfRemoveProductFromWishlistCommand>();

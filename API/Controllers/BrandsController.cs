@@ -30,11 +30,10 @@ namespace API.Controllers
          => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<BrandsController>/5
+        [Authorize]
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public IActionResult Get(int id, [FromServices] IGetBrandQuery query)
+         => Ok(_useCaseHandler.HandleQuery(query, id));
 
         [Authorize]
         [HttpPost]

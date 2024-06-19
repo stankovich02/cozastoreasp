@@ -2,6 +2,7 @@
 using Application.DTO.Sizes;
 using Application.UseCases.Commands.Brands;
 using Application.UseCases.Commands.Sizes;
+using Application.UseCases.Queries.Reviews;
 using Application.UseCases.Queries.Sizes;
 using Implementation.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,11 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery] SearchSize search, [FromServices] IGetSizesQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public IActionResult Get(int id, [FromServices] IGetSizeQuery query)
+        => Ok(_useCaseHandler.HandleQuery(query, id));
 
         [Authorize]
         [HttpPost]
