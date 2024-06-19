@@ -35,7 +35,7 @@ namespace API.Controllers
         // POST api/<ProductsController>
         [Authorize]
         [HttpPost]
-        public IActionResult Post([FromBody] CreateProductDTO dto,ICreateProductCommand command)
+        public IActionResult Post([FromBody] CreateProductDTO dto, ICreateProductCommand command)
         {
             _useCaseHandler.HandleCommand(command, dto);
 

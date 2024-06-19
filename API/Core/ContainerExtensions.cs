@@ -9,6 +9,7 @@ using Application.UseCases.Commands.Messages;
 using Application.UseCases.Commands.Orders;
 using Application.UseCases.Commands.PaymentTypes;
 using Application.UseCases.Commands.Products;
+using Application.UseCases.Commands.Reviews;
 using Application.UseCases.Commands.Sizes;
 using Application.UseCases.Commands.Users;
 using Application.UseCases.Commands.UsersBillingAddresses;
@@ -22,6 +23,7 @@ using Application.UseCases.Queries.Messages;
 using Application.UseCases.Queries.Orders;
 using Application.UseCases.Queries.PaymentTypes;
 using Application.UseCases.Queries.Products;
+using Application.UseCases.Queries.Reviews;
 using Application.UseCases.Queries.Sizes;
 using Application.UseCases.Queries.Users;
 using Application.UseCases.Queries.UsersBillingAddresses;
@@ -38,6 +40,7 @@ using Implementation.UseCases.Commands.Messages;
 using Implementation.UseCases.Commands.Orders;
 using Implementation.UseCases.Commands.PaymentTypes;
 using Implementation.UseCases.Commands.Products;
+using Implementation.UseCases.Commands.Reviews;
 using Implementation.UseCases.Commands.Sizes;
 using Implementation.UseCases.Commands.Users;
 using Implementation.UseCases.Commands.UsersBillingAddresses;
@@ -52,6 +55,7 @@ using Implementation.UseCases.Queries.Messages;
 using Implementation.UseCases.Queries.Orders;
 using Implementation.UseCases.Queries.PaymentTypes;
 using Implementation.UseCases.Queries.Products;
+using Implementation.UseCases.Queries.Reviews;
 using Implementation.UseCases.Queries.Sizes;
 using Implementation.UseCases.Queries.Users;
 using Implementation.UseCases.Queries.UsersBillingAddresses;
@@ -65,6 +69,7 @@ using Implementation.Validators.Messages;
 using Implementation.Validators.Orders;
 using Implementation.Validators.PaymentTypes;
 using Implementation.Validators.Products;
+using Implementation.Validators.Reviews;
 using Implementation.Validators.Sizes;
 using Implementation.Validators.Users;
 using Implementation.Validators.UsersBillingAddresses;
@@ -153,6 +158,10 @@ namespace API.Core
             services.AddTransient<IDeleteOrderCommand,EfDeleteOrderCommand>();
             services.AddTransient<IGetOrdersQuery,EfGetOrdersQuery>();
 
+            services.AddTransient<ICreateReviewCommand,EfCreateReviewCommand>();
+            services.AddTransient<IDeleteReviewCommand,EfDeleteReviewCommand>();
+            services.AddTransient<IUpdateReviewCommand,EfUpdateReviewCommand>();
+            services.AddTransient<IGetReviewsQuery,EfGetReviewsQuery>();
         }
 
         public static void AddValidators(this IServiceCollection services)
@@ -194,6 +203,9 @@ namespace API.Core
             services.AddTransient<UpdateCartValidator>();
 
             services.AddTransient<CreateOrderValidator>();
+
+            services.AddTransient<CreateReviewValidator>();
+            services.AddTransient<UpdateReviewValidator>();
         }
 
         public static Guid? GetTokenId(this HttpRequest request)

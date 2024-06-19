@@ -32,7 +32,7 @@ namespace Implementation.UseCases.Commands
         {
             TEntity entity = _context.Set<TEntity>().Find(dto.Id);
 
-            if (entity == null)
+            if (entity == null || !entity.IsActive)
             {
                 throw new EntityNotFoundException();
             }

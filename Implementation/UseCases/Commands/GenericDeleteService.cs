@@ -26,7 +26,7 @@ namespace Implementation.UseCases.Commands
         {
             var entity = _context.Set<TEntity>().Find(id);
 
-            if (entity == null)
+            if (entity == null || !entity.IsActive)
             {
                 throw new EntityNotFoundException();
             }
