@@ -17,20 +17,26 @@ namespace Implementation.Validators.Discounts
 
             RuleFor(x => x.ProductId)
                   .NotEmpty()
+                  .WithMessage("Product is required.")
                   .Must(x => context.Products.Any(y => y.Id == x && y.IsActive))
                   .WithMessage("Product doesn't exist.");
 
             RuleFor(x => x.DiscountPercent)
-                   .NotEmpty()
-                   .GreaterThan(0);
+                  .NotEmpty()
+                  .WithMessage("Discount percent is required.")
+                  .GreaterThan(0)
+                  .WithMessage("Discount percent must be greather than 0");
+
 
             RuleFor(x => x.DateFrom)
                    .NotEmpty()
+                   .WithMessage("Discount start date is required.")
                    .Must(x => (x - DateTime.UtcNow).TotalHours > 1)
                    .WithMessage("Start date of discount must be at least 1 hour from now.");
 
             RuleFor(x => x.DateTo)
                    .NotEmpty()
+                   .WithMessage("Discount end date is required.")
                    .Must((dto, dateTo) => dateTo > dto.DateFrom)
                    .When(dto => dto.DateFrom != default)
                    .WithMessage("End date cannot be before start date.")

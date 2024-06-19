@@ -16,20 +16,27 @@ namespace Implementation.Validators.Messages
 
             RuleFor(x => x.FullName)
                    .NotEmpty()
+                   .WithMessage("Full name is required.")
                    .Matches("(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})")
                    .WithMessage("Invalid Full Name. Example: Jhon Doe");
 
             RuleFor(x => x.Email)
                    .NotEmpty()
-                   .EmailAddress();
+                   .WithMessage("Email is required.")
+                   .EmailAddress()
+                   .WithMessage("Invalid Email. Example: jhondoe@gmail.com");
             
             RuleFor(x => x.Subject)
                   .NotEmpty()
-                  .MinimumLength(5);
+                  .WithMessage("Subject is required.")
+                  .MinimumLength(5)
+                  .WithMessage("Subject must be at least 5 characters long.");
 
             RuleFor(x => x.MessageText)
                   .NotEmpty()
-                  .MinimumLength(10);
+                  .WithMessage("Message is required.")
+                  .MinimumLength(10)
+                  .WithMessage("Message must be at least 10 characters long.");
 
 
 

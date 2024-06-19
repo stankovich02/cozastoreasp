@@ -17,15 +17,19 @@ namespace Implementation.Validators.Reviews
 
             RuleFor(x => x.ProductId)
                 .NotEmpty()
+                .WithMessage("Product is required.")
                 .Must(x => context.Products.Any(y => y.Id == x && y.IsActive))
                 .WithMessage("Product doesn't exist");
 
             RuleFor(x => x.ReviewText)
                 .NotEmpty()
-                .MinimumLength(5);
+                .WithMessage("Review text is required.")
+                .MinimumLength(5)
+                .WithMessage("Review text must be at least 5 charachters long.");
 
             RuleFor(x => x.Rate)
-                .InclusiveBetween(1, 5);
+                .InclusiveBetween(1, 5)
+                .WithMessage("Rate must be between 1 and 5");
         }
     }
 }

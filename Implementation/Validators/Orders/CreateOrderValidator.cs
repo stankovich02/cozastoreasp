@@ -17,11 +17,13 @@ namespace Implementation.Validators.Orders
 
             RuleFor(x => x.PaymentTypeId)
                 .NotEmpty()
+                .WithMessage("Payment type is required.")
                 .Must(x => context.PaymentTypes.Any(y => y.Id == x && y.IsActive))
                 .WithMessage("Payment type doesn't exist");
 
             RuleFor(x => x.Products)
                 .NotEmpty()
+                .WithMessage("Products are required.")
                 .DependentRules(() =>
                 {
                     RuleForEach(x => x.Products).Must((x, product) =>

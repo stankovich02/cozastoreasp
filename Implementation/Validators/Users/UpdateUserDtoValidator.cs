@@ -17,13 +17,16 @@ namespace Implementation.Validators.Users
 
             RuleFor(x => x.Email)
                 .NotEmpty()
+                .WithMessage("Email is requried.")
                 .EmailAddress()
+                .WithMessage("Invalid email. Example: jhondoe@gmail.com")
                 .Must((dto, x) => !context.Users.Any(u => u.Email == x && u.Id != dto.Id))
                 .WithMessage("Email is already in use.");
 
 
             RuleFor(x => x.Username)
                 .NotEmpty()
+                .WithMessage("Username is required.")
                 .Matches("(?=.{4,15}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")
                 .WithMessage("Invalid username format. Example: jhondoe123")
                 .Must((dto, x) => !context.Users.Any(u => u.Username == x && u.Id != dto.Id))
@@ -31,11 +34,15 @@ namespace Implementation.Validators.Users
 
             RuleFor(x => x.FirstName)
                 .NotEmpty()
-                .MinimumLength(3);
+                .WithMessage("First name is required.")
+                .MinimumLength(3)
+                .WithMessage("First name must be at least 3 characters long.");
 
             RuleFor(x => x.LastName)
                 .NotEmpty()
-                .MinimumLength(3);
+                .WithMessage("Last name is required.")
+                .MinimumLength(3)
+                .WithMessage("Last name must be at least 3 characters long.");
         }
     }
 }

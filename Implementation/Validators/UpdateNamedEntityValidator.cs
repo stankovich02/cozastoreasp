@@ -21,8 +21,6 @@ namespace Implementation.Validators
             RuleFor(x => x.Name)
                 .NotEmpty()
                 .WithMessage($"{entityName} is required.")
-                .MinimumLength(3)
-                .WithMessage($"{entityName} must contain at least 3 characters.")
                 .Must((dto, name) => !context.Set<TEntity>().Any(e => EF.Property<string>(e, "Name") == name && EF.Property<int>(e, "Id") != dto.Id))
                 .WithMessage($"{entityName} with this name already exists.");
         }

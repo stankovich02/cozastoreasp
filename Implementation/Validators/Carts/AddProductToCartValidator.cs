@@ -17,12 +17,15 @@ namespace Implementation.Validators.Carts
 
             RuleFor(x => x.ProductId)
                 .NotEmpty()
+                .WithMessage("Product is required.")
                 .Must(x => context.Products.Any(p => p.Id == x && p.IsActive))
                 .WithMessage("Product does not exist.");
 
             RuleFor(x => x.Quantity)
                 .NotEmpty()
-                .GreaterThan(0);
+                .WithMessage("Quantity is required.")
+                .GreaterThan(0)
+                .WithMessage("Quantity must be greater than 0.");
         }
     }
 }

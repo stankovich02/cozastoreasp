@@ -17,6 +17,7 @@ namespace Implementation.Validators.Wishlists
 
             RuleFor(x => x.ProductId)
                 .NotEmpty()
+                .WithMessage("Product is required.")
                 .Must(x => context.Products.Any(y => y.Id == x && y.IsActive))
                 .WithMessage("Product doesn't exist.");
             
