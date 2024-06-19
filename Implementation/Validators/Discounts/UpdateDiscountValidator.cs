@@ -15,7 +15,7 @@ namespace Implementation.Validators.Discounts
         {
             RuleFor(x => x.ProductId)
                   .NotEmpty()
-                  .Must(x => context.Products.Any(y => y.Id == x))
+                  .Must(x => context.Products.Any(y => y.Id == x && y.IsActive))
                   .WithMessage("Product doesn't exist.");
 
             RuleFor(x => x.DiscountPercent)

@@ -1,15 +1,19 @@
 ﻿using Application;
 using Application.UseCases.Commands.Brands;
+using Application.UseCases.Commands.Carts;
 using Application.UseCases.Commands.Categories;
 using Application.UseCases.Commands.Colors;
 using Application.UseCases.Commands.Discounts;
 using Application.UseCases.Commands.Genders;
 using Application.UseCases.Commands.Messages;
+using Application.UseCases.Commands.Orders;
 using Application.UseCases.Commands.PaymentTypes;
 using Application.UseCases.Commands.Products;
 using Application.UseCases.Commands.Sizes;
 using Application.UseCases.Commands.Users;
+using Application.UseCases.Commands.UsersBillingAddresses;
 using Application.UseCases.Queries.Brands;
+using Application.UseCases.Queries.Carts;
 using Application.UseCases.Queries.Categories;
 using Application.UseCases.Queries.Colors;
 using Application.UseCases.Queries.Discounts;
@@ -19,21 +23,26 @@ using Application.UseCases.Queries.PaymentTypes;
 using Application.UseCases.Queries.Products;
 using Application.UseCases.Queries.Sizes;
 using Application.UseCases.Queries.Users;
+using Application.UseCases.Queries.UsersBillingAddresses;
 using Implementation.Logging.UseCases;
 using Implementation.UseCases;
 using Implementation.UseCases.Commands;
 using Implementation.UseCases.Commands.Brands;
+using Implementation.UseCases.Commands.Carts;
 using Implementation.UseCases.Commands.Categories;
 using Implementation.UseCases.Commands.Colors;
 using Implementation.UseCases.Commands.Discounts;
 using Implementation.UseCases.Commands.Genders;
 using Implementation.UseCases.Commands.Messages;
+using Implementation.UseCases.Commands.Orders;
 using Implementation.UseCases.Commands.PaymentTypes;
 using Implementation.UseCases.Commands.Products;
 using Implementation.UseCases.Commands.Sizes;
 using Implementation.UseCases.Commands.Users;
+using Implementation.UseCases.Commands.UsersBillingAddresses;
 using Implementation.UseCases.Queries;
 using Implementation.UseCases.Queries.Brands;
+using Implementation.UseCases.Queries.Carts;
 using Implementation.UseCases.Queries.Categories;
 using Implementation.UseCases.Queries.Colors;
 using Implementation.UseCases.Queries.Discounts;
@@ -43,16 +52,20 @@ using Implementation.UseCases.Queries.PaymentTypes;
 using Implementation.UseCases.Queries.Products;
 using Implementation.UseCases.Queries.Sizes;
 using Implementation.UseCases.Queries.Users;
+using Implementation.UseCases.Queries.UsersBillingAddresses;
 using Implementation.Validators.Brands;
+using Implementation.Validators.Carts;
 using Implementation.Validators.Categories;
 using Implementation.Validators.Colors;
 using Implementation.Validators.Discounts;
 using Implementation.Validators.Genders;
 using Implementation.Validators.Messages;
+using Implementation.Validators.Orders;
 using Implementation.Validators.PaymentTypes;
 using Implementation.Validators.Products;
 using Implementation.Validators.Sizes;
 using Implementation.Validators.Users;
+using Implementation.Validators.UsersBillingAddresses;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace API.Core
@@ -124,6 +137,18 @@ namespace API.Core
             services.AddTransient<IDeleteMessageCommand, EfDeleteMessageCommand>();
             services.AddTransient<IGetMessagesQuery, EfGetMessagesQuery>();
 
+            services.AddTransient<ICreateUserBillingAddressCommand,EfCreateUserBillingAddressCommand>();
+            services.AddTransient<IUpdateUserBillingAddressCommand,EfUpdateUserBillingAddressCommand>();
+            services.AddTransient<IDeleteUserBillingAddressCommand,EfDeleteUserBillingAddressCommand>();
+            services.AddTransient<IGetUsersBillingAddressesQuery,EfGetUsersBillingAddressesQuery>();
+
+            services.AddTransient<ICreateCartCommand,EfAddProductToCartCommand>();
+            services.AddTransient<IUpdateProductInCartCommand,EfUpdateProductInCartCommand>();
+            services.AddTransient<IDeleteProductFromCartCommand,EfDeleteProductFromCartCommand>();
+            services.AddTransient<IGetCartsQuery,EfGetCartsQuery>();
+
+            services.AddTransient<ICreateOrderCommand,EfCreateOrderCommand>();
+
         }
 
         public static void AddValidators(this IServiceCollection services)
@@ -157,6 +182,14 @@ namespace API.Core
             services.AddTransient<UpdateDiscountValidator>();
 
             services.AddTransient<CreateMessageValidator>();
+
+            services.AddTransient<CreateUserBillingAddressValidator>();
+            services.AddTransient<UpdateUserBillingAddressValidator>();
+
+            services.AddTransient<CreateCartValidator>();
+            services.AddTransient<UpdateCartValidator>();
+
+            services.AddTransient<CreateOrderValidator>();
         }
 
         public static Guid? GetTokenId(this HttpRequest request)

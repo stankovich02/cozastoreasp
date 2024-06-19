@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Configurations
 {
-    internal class ImageConfiguration : EntityConfiguration<Image>
+    public class ImageConfiguration : EntityConfiguration<Image>
     {
         protected override void ConfigureEntity(EntityTypeBuilder<Image> builder)
         {

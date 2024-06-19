@@ -31,6 +31,8 @@ namespace Implementation.UseCases.Commands.Products
 
         public void Execute(CreateProductDTO data)
         {
+            _validator.ValidateAndThrow(data);
+
             foreach (var file in data.Images)
             {
                 var tempFile = Path.Combine("wwwroot", "temp", file);
@@ -71,10 +73,9 @@ namespace Implementation.UseCases.Commands.Products
                 }).ToList()
             };
 
-            _genericCreateService.CreateEntity(data, _validator, (data) =>
-            {
-                return p; 
-            });
+            Context.Products.Add(p);
+
+            Context.SaveChanges();
         }
     }
 }

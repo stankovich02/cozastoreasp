@@ -58,9 +58,9 @@ namespace Implementation.UseCases.Queries.Products
              Name = x.Name,
              Price = x.Prices.Where(y => y.DateTo == null && y.IsActive).Select(p => new ProductPriceDTO
              {
-                OldPrice = x.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow &&d.IsActive) ? p.ProductPrice : null,
+                OldPrice = x.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive) ? p.ProductPrice : null,
                 ActivePrice = 
-                x.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow) ? p.ProductPrice - (p.ProductPrice * x.Discounts
+                x.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive) ? p.ProductPrice - (p.ProductPrice * x.Discounts
                                                                                                                                 .Where(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow)
                                                                                                                                 .Select(d => d.DiscountPercent)
                                                                                                                                 .FirstOrDefault() / 100) : p.ProductPrice

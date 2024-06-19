@@ -28,19 +28,19 @@ namespace Implementation.Validators.Products
             RuleFor(x => x.CategoryId)
                    .Cascade(CascadeMode.Stop)
                    .NotEmpty()
-                   .Must(x => context.Categories.Any(y => y.Id == x))
+                   .Must(x => context.Categories.Any(y => y.Id == x && y.IsActive))
                    .WithMessage("Category doesnt exist.");
 
             RuleFor(x => x.BrandId)
                    .Cascade(CascadeMode.Stop)
                    .NotEmpty()
-                   .Must(x => context.Brands.Any(y => y.Id == x))
+                   .Must(x => context.Brands.Any(y => y.Id == x && y.IsActive))
                    .WithMessage("Brand doesnt exist.");
 
             RuleFor(x => x.GenderId)
                    .Cascade(CascadeMode.Stop)
                    .NotEmpty()
-                   .Must(x => context.Genders.Any(y => y.Id == x))
+                   .Must(x => context.Genders.Any(y => y.Id == x && y.IsActive))
                    .WithMessage("Gender doesnt exist.");
 
             RuleFor(x => x.Available)
@@ -63,7 +63,7 @@ namespace Implementation.Validators.Products
                    {
                        RuleForEach(x => x.Sizes).Must((x, sizeID) =>
                        {
-                           return context.Sizes.Any(y => y.Id == sizeID);
+                           return context.Sizes.Any(y => y.Id == sizeID && y.IsActive);
                        }).WithMessage("Size ID doesn't exist.");
                    });
             RuleFor(x => x.Colors)
@@ -72,9 +72,9 @@ namespace Implementation.Validators.Products
                   .WithMessage("At least one color is required.")
                   .DependentRules(() =>
                   {
-                      RuleForEach(x => x.Colors).Must((x, sizeID) =>
+                      RuleForEach(x => x.Colors).Must((x, colorID) =>
                       {
-                          return context.Colors.Any(y => y.Id == sizeID);
+                          return context.Colors.Any(y => y.Id == colorID && y.IsActive);
                       }).WithMessage("Color ID doesn't exist.");
                   });
 

@@ -43,7 +43,13 @@ namespace Implementation.UseCases.Commands.Users
                     UseCases = new List<UserUseCase>()
                     {
                         new() { UseCaseId = 3 },
-                        new() { UseCaseId = 5 }
+                        new() { UseCaseId = 5 },
+                        new() { UseCaseId = 41 },
+                        new() { UseCaseId = 42 },
+                        new() { UseCaseId = 43 },
+                        new() { UseCaseId = 45 },
+                        new() { UseCaseId = 46 },
+                        new() { UseCaseId = 47 },
                     }
                 };
             });

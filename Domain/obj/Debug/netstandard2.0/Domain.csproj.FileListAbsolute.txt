@@ -8,3 +8,14 @@ C:\Users\marko\OneDrive\Desktop\CozaStore_ASP\CozaStore\Domain\obj\Debug\netstan
 C:\Users\marko\OneDrive\Desktop\CozaStore_ASP\CozaStore\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
 C:\Users\marko\OneDrive\Desktop\CozaStore_ASP\CozaStore\Domain\obj\Debug\netstandard2.0\Domain.dll
 C:\Users\marko\OneDrive\Desktop\CozaStore_ASP\CozaStore\Domain\obj\Debug\netstandard2.0\Domain.pdb
+C:\Users\marko\source\repos\cozastoreasp\Domain\bin\Debug\netstandard2.0\Domain.deps.json
+C:\Users\marko\source\repos\cozastoreasp\Domain\bin\Debug\netstandard2.0\Domain.dll
+C:\Users\marko\source\repos\cozastoreasp\Domain\bin\Debug\netstandard2.0\Domain.pdb
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.csproj.AssemblyReference.cache
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.sourcelink.json
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.dll
+C:\Users\marko\source\repos\cozastoreasp\Domain\obj\Debug\netstandard2.0\Domain.pdb

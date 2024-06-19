@@ -72,9 +72,7 @@ namespace Implementation.UseCases.Commands.Products
                    {
                        ColorId = c
                    }).ToList();
-                   //slika3.jpg sliak4.jpg slika5.jpg
-                   //slika1.jpg(nova) slika2.jpg(nova) slika3.jpg(stara)
-                   //novi niz - slik1.jpg,slika2.jpg
+
                    List<ProductImage> images = new List<ProductImage> { };
                    var oldImages = Context.ProductImages.Where(ps => ps.ProductId == entity.Id).Select(x => x.Image.Path).ToList();
                    foreach(var image in data.Images)

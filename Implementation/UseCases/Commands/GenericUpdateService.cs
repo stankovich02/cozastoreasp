@@ -1,4 +1,5 @@
-﻿using Application.DTO;
+﻿using Application;
+using Application.DTO;
 using Application.Exceptions;
 using DataAccess;
 using Domain;
@@ -16,10 +17,12 @@ namespace Implementation.UseCases.Commands
     public class GenericUpdateService
     {
         private readonly CozaStoreContext _context;
+        private readonly IApplicationActor _actor;
 
-        public GenericUpdateService(CozaStoreContext context)
+        public GenericUpdateService(CozaStoreContext context, IApplicationActor actor)
         {
             _context = context;
+            _actor = actor;
         }
 
         public void UpdateEntity<TEntity, TDto, TValidator>(TDto dto, TValidator validator, Action<TEntity,TDto> updateAction)
@@ -32,6 +35,14 @@ namespace Implementation.UseCases.Commands
             if (entity == null)
             {
                 throw new EntityNotFoundException();
+            }
+
+            if (entity is UserBillingAddress userBillingAddress)
+            {
+                if (userBillingAddress.UserId != _actor.Id)
+                {
+                    throw new ConflictException("You cannot update other user billing address.");
+                }
             }
 
             validator.ValidateAndThrow(dto);
