@@ -1,7 +1,9 @@
 using API;
 using API.Core;
+using API.Core.Cron;
 using Application;
 using DataAccess;
+using Hangfire;
 using Implementation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -21,18 +23,21 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 builder.Services.AddTransient<CozaStoreContext>();
-
 builder.Services.AddTransient<JwtTokenCreator>();
 
 builder.Services.AddUseCases();
 builder.Services.AddValidators();
 
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(settings.HfConnectionString));
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddTransient<IExceptionLogger, DBExceptionLogger>();
 builder.Services.AddTransient<ITokenStorage, InMemoryTokenStorage>();
+
 
 builder.Services.AddTransient<IApplicationActorProvider>(x =>
 {
@@ -98,7 +103,20 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+app.UseCors(x =>
+{
+    x.AllowAnyOrigin();
+    x.AllowAnyMethod();
+    x.AllowAnyHeader();
+});
+
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+
+app.UseHangfireServer();
+app.UseHangfireDashboard();
+
+
+RecurringJob.AddOrUpdate<CleanTempFolderJob>("Clean Temp Folder", x => x.Process(), "0 */30 * ? * *");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

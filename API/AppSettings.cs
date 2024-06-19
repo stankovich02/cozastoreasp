@@ -3,6 +3,7 @@
     public class AppSettings
     {
         public JwtSettings Jwt { get; set; }
+        public string HfConnectionString { get; set; }
     }
 
     public class JwtSettings

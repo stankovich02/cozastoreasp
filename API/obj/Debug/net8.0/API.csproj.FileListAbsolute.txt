@@ -173,3 +173,7 @@ C:\Users\marko\source\repos\cozastoreasp\API\obj\Debug\net8.0\refint\API.dll
 C:\Users\marko\source\repos\cozastoreasp\API\obj\Debug\net8.0\API.pdb
 C:\Users\marko\source\repos\cozastoreasp\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\marko\source\repos\cozastoreasp\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\marko\source\repos\cozastoreasp\API\bin\Debug\net8.0\Hangfire.AspNetCore.dll
+C:\Users\marko\source\repos\cozastoreasp\API\bin\Debug\net8.0\Hangfire.Core.dll
+C:\Users\marko\source\repos\cozastoreasp\API\bin\Debug\net8.0\Hangfire.NetCore.dll
+C:\Users\marko\source\repos\cozastoreasp\API\bin\Debug\net8.0\Hangfire.SqlServer.dll
