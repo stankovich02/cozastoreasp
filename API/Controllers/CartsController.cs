@@ -54,7 +54,7 @@ namespace API.Controllers
 
         // DELETE api/<CartsController>/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id, [FromServices] IDeleteProductFromCartCommand command)
+        public IActionResult Delete(int id, [FromServices] IRemoveProductFromCartCommand command)
         {
             _useCaseHandler.HandleCommand(command, id);
 

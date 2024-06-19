@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Application.UseCases.Commands.Carts
 {
-    public interface IDeleteProductFromCartCommand : ICommand<int>    
+    public interface IRemoveProductFromCartCommand : ICommand<int>    
     {
     }
 }

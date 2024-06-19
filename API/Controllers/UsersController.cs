@@ -65,5 +65,16 @@ namespace API.Controllers
 
             return StatusCode(StatusCodes.Status204NoContent);
         }
+
+        [HttpPut("{id}/access")]
+        public IActionResult ModifyAccess(int id, [FromBody] UpdateUserAccessDTO dto,
+                                                  [FromServices] IUpdateUserAccessCommand command)
+        {
+            dto.UserId = id;
+
+            _useCaseHandler.HandleCommand(command, dto);
+
+            return NoContent();
+        }
     }
 }

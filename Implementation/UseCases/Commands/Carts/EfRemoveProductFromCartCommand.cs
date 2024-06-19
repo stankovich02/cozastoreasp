@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Implementation.UseCases.Commands.Carts
 {
-    public class EfDeleteProductFromCartCommand : EfUseCase,IDeleteProductFromCartCommand
+    public class EfRemoveProductFromCartCommand : EfUseCase,IRemoveProductFromCartCommand
     {
         private readonly IApplicationActor _actor;
 
-        public EfDeleteProductFromCartCommand(IApplicationActor actor,CozaStoreContext context)
+        public EfRemoveProductFromCartCommand(IApplicationActor actor,CozaStoreContext context)
          : base(context)
         {
             _actor = actor;
@@ -38,7 +38,7 @@ namespace Implementation.UseCases.Commands.Carts
 
             if (productInCart == null)
             {
-                throw new EntityNotFoundException();
+                throw new ConflictException("You don't have this product in your cart.");
             }
 
             Context.Carts.Remove(productInCart);

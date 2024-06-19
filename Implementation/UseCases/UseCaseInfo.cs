@@ -8,6 +8,6 @@ namespace Implementation.UseCases
 {
     public static class UseCaseInfo
     {
-        public static int MaxUseCaseId => 40;
+        public static int MaxUseCaseId => 59;
     }
 }

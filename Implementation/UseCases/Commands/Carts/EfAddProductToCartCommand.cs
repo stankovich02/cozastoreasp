@@ -17,9 +17,9 @@ namespace Implementation.UseCases.Commands.Carts
 {
     public class EfAddProductToCartCommand : EfUseCase,ICreateCartCommand
     {
-        private readonly CreateCartValidator _validator;
+        private readonly AddProductToCartValidator _validator;
         private readonly IApplicationActor _actor;
-        public EfAddProductToCartCommand(CozaStoreContext context, CreateCartValidator validator, IApplicationActor actor) : base(context)
+        public EfAddProductToCartCommand(CozaStoreContext context, AddProductToCartValidator validator, IApplicationActor actor) : base(context)
         {
             _validator = validator;
             _actor = actor;

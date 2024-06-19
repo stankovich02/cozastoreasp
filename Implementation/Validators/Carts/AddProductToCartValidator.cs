@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Implementation.Validators.Carts
 {
-    public class CreateCartValidator : AbstractValidator<AddProductToCartDTO>
+    public class AddProductToCartValidator : AbstractValidator<AddProductToCartDTO>
     {
-        public CreateCartValidator(CozaStoreContext context)
+        public AddProductToCartValidator(CozaStoreContext context)
         {
             RuleFor(x => x.ProductId)
                 .NotEmpty()

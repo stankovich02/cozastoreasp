@@ -13,6 +13,8 @@ using Application.UseCases.Commands.Reviews;
 using Application.UseCases.Commands.Sizes;
 using Application.UseCases.Commands.Users;
 using Application.UseCases.Commands.UsersBillingAddresses;
+using Application.UseCases.Commands.Wishlists;
+using Application.UseCases.Queries;
 using Application.UseCases.Queries.Brands;
 using Application.UseCases.Queries.Carts;
 using Application.UseCases.Queries.Categories;
@@ -44,6 +46,7 @@ using Implementation.UseCases.Commands.Reviews;
 using Implementation.UseCases.Commands.Sizes;
 using Implementation.UseCases.Commands.Users;
 using Implementation.UseCases.Commands.UsersBillingAddresses;
+using Implementation.UseCases.Commands.Wishlists;
 using Implementation.UseCases.Queries;
 using Implementation.UseCases.Queries.Brands;
 using Implementation.UseCases.Queries.Carts;
@@ -59,6 +62,7 @@ using Implementation.UseCases.Queries.Reviews;
 using Implementation.UseCases.Queries.Sizes;
 using Implementation.UseCases.Queries.Users;
 using Implementation.UseCases.Queries.UsersBillingAddresses;
+using Implementation.UseCases.Queries.Wishlists;
 using Implementation.Validators.Brands;
 using Implementation.Validators.Carts;
 using Implementation.Validators.Categories;
@@ -73,6 +77,7 @@ using Implementation.Validators.Reviews;
 using Implementation.Validators.Sizes;
 using Implementation.Validators.Users;
 using Implementation.Validators.UsersBillingAddresses;
+using Implementation.Validators.Wishlists;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace API.Core
@@ -96,6 +101,7 @@ namespace API.Core
             services.AddTransient<IDeleteUserCommand, EfDeleteUserCommand>();
             services.AddTransient<IGetUsersQuery, EfGetUsersQuery>();
             services.AddTransient<IUpdateUserImageCommand, EfUpdateUserImageCommand>();
+            services.AddTransient<IUpdateUserAccessCommand, EfUpdateUserAccessCommand>();
             
             services.AddTransient<ICreateCategoryCommand, EfCreateCategoryCommand>(); 
             services.AddTransient<IUpdateCategoryCommand, EfUpdateCategoryCommand>();       
@@ -151,7 +157,7 @@ namespace API.Core
 
             services.AddTransient<ICreateCartCommand,EfAddProductToCartCommand>();
             services.AddTransient<IUpdateProductInCartCommand,EfUpdateProductInCartCommand>();
-            services.AddTransient<IDeleteProductFromCartCommand,EfDeleteProductFromCartCommand>();
+            services.AddTransient<IRemoveProductFromCartCommand,EfRemoveProductFromCartCommand>();
             services.AddTransient<IGetCartsQuery,EfGetCartsQuery>();
 
             services.AddTransient<ICreateOrderCommand,EfCreateOrderCommand>();
@@ -162,6 +168,10 @@ namespace API.Core
             services.AddTransient<IDeleteReviewCommand,EfDeleteReviewCommand>();
             services.AddTransient<IUpdateReviewCommand,EfUpdateReviewCommand>();
             services.AddTransient<IGetReviewsQuery,EfGetReviewsQuery>();
+
+            services.AddTransient<IAddProductToWishlistCommand,EfAddProductToWishlistCommand>();
+            services.AddTransient<IRemoveProductFromWishlistCommand,EfRemoveProductFromWishlistCommand>();
+            services.AddTransient<IGetWishlistsQuery,EfGetWishlistsQuery>();
         }
 
         public static void AddValidators(this IServiceCollection services)
@@ -169,6 +179,7 @@ namespace API.Core
             services.AddTransient<RegisterUserDtoValidator>();
             services.AddTransient<UpdateUserDtoValidator>();
             services.AddTransient<UpdateUserImageValidator>();
+            services.AddTransient<UpdateUserAccessValidator>();
 
             services.AddTransient<CreateCategoryValidator>();
             services.AddTransient<UpdateCategoryValidator>();
@@ -199,13 +210,17 @@ namespace API.Core
             services.AddTransient<CreateUserBillingAddressValidator>();
             services.AddTransient<UpdateUserBillingAddressValidator>();
 
-            services.AddTransient<CreateCartValidator>();
-            services.AddTransient<UpdateCartValidator>();
+            services.AddTransient<AddProductToCartValidator>();
+            services.AddTransient<UpdateProductInCartValidator>();
 
             services.AddTransient<CreateOrderValidator>();
 
             services.AddTransient<CreateReviewValidator>();
             services.AddTransient<UpdateReviewValidator>();
+
+            services.AddTransient<AddProductToCartValidator>();
+
+            services.AddTransient<AddProductToWishlistValidator>();
         }
 
         public static Guid? GetTokenId(this HttpRequest request)
