@@ -19,6 +19,7 @@ using Application.UseCases.Queries.Colors;
 using Application.UseCases.Queries.Discounts;
 using Application.UseCases.Queries.Genders;
 using Application.UseCases.Queries.Messages;
+using Application.UseCases.Queries.Orders;
 using Application.UseCases.Queries.PaymentTypes;
 using Application.UseCases.Queries.Products;
 using Application.UseCases.Queries.Sizes;
@@ -48,6 +49,7 @@ using Implementation.UseCases.Queries.Colors;
 using Implementation.UseCases.Queries.Discounts;
 using Implementation.UseCases.Queries.Genders;
 using Implementation.UseCases.Queries.Messages;
+using Implementation.UseCases.Queries.Orders;
 using Implementation.UseCases.Queries.PaymentTypes;
 using Implementation.UseCases.Queries.Products;
 using Implementation.UseCases.Queries.Sizes;
@@ -148,6 +150,8 @@ namespace API.Core
             services.AddTransient<IGetCartsQuery,EfGetCartsQuery>();
 
             services.AddTransient<ICreateOrderCommand,EfCreateOrderCommand>();
+            services.AddTransient<IDeleteOrderCommand,EfDeleteOrderCommand>();
+            services.AddTransient<IGetOrdersQuery,EfGetOrdersQuery>();
 
         }
 

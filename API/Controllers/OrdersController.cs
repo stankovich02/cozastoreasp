@@ -1,6 +1,8 @@
 ﻿using Application.DTO.Orders;
 using Application.UseCases.Commands.Orders;
+using Application.UseCases.Queries.Orders;
 using Implementation.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,11 +21,10 @@ namespace API.Controllers
         }
 
         // GET: api/<OrdersController>
+        [Authorize]
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        public IActionResult Get([FromQuery] SearchOrder search, [FromServices] IGetOrdersQuery query)
+         => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // GET api/<OrdersController>/5
         [HttpGet("{id}")]
@@ -33,6 +34,7 @@ namespace API.Controllers
         }
 
         // POST api/<OrdersController>
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] CreateOrderDTO dto, ICreateOrderCommand command)
         {
@@ -41,16 +43,14 @@ namespace API.Controllers
             return StatusCode(StatusCodes.Status201Created);
         }
 
-        // PUT api/<OrdersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
         // DELETE api/<OrdersController>/5
+        [Authorize]
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id, [FromServices] IDeleteOrderCommand command)
         {
+            _useCaseHandler.HandleCommand(command, id);
+
+            return StatusCode(StatusCodes.Status204NoContent);
         }
     }
 }
