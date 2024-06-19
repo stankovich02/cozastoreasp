@@ -13,6 +13,8 @@ namespace Implementation.Validators.Wishlists
     {
         public AddProductToWishlistValidator(CozaStoreContext context)
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.ProductId)
                 .NotEmpty()
                 .Must(x => context.Products.Any(y => y.Id == x && y.IsActive))

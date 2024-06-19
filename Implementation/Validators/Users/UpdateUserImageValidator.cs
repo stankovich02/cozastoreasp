@@ -12,6 +12,8 @@ namespace Implementation.Validators.Users
     {
         public UpdateUserImageValidator()
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.File)
                 .NotEmpty()
                 .WithMessage("Image is required.")

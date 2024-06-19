@@ -11,13 +11,11 @@ namespace Implementation.Validators.Users
 {
     public class UpdateUserDtoValidator : AbstractValidator<UpdateUserDTO>
     {
-        private readonly CozaStoreContext _context;
         public UpdateUserDtoValidator(CozaStoreContext context)
         {
-            _context = context;
+            CascadeMode = CascadeMode.StopOnFirstFailure;
 
             RuleFor(x => x.Email)
-                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .EmailAddress()
                 .Must((dto, x) => !context.Users.Any(u => u.Email == x && u.Id != dto.Id))
@@ -25,7 +23,6 @@ namespace Implementation.Validators.Users
 
 
             RuleFor(x => x.Username)
-                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .Matches("(?=.{4,15}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")
                 .WithMessage("Invalid username format. Example: jhondoe123")
@@ -33,12 +30,10 @@ namespace Implementation.Validators.Users
                 .WithMessage("Username is already in use.");
 
             RuleFor(x => x.FirstName)
-                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MinimumLength(3);
 
             RuleFor(x => x.LastName)
-                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MinimumLength(3);
         }

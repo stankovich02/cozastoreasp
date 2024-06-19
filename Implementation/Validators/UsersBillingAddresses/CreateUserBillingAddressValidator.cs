@@ -12,6 +12,8 @@ namespace Implementation.Validators.UsersBillingAddresses
     {
         public CreateUserBillingAddressValidator()
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.Phone)
                 .NotEmpty()
                 .Matches(@"^(\+[0-9]{3})?[0-9]{9}$")

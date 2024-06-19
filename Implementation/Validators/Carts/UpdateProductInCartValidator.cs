@@ -13,6 +13,8 @@ namespace Implementation.Validators.Carts
     {
         public UpdateProductInCartValidator(CozaStoreContext context)
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.ProductId)
                .NotEmpty()
                .Must(x => context.Products.Any(p => p.Id == x && p.IsActive))

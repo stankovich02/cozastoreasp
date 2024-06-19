@@ -16,6 +16,8 @@ namespace Implementation.Validators
     {
         public UpdateNamedEntityValidator(CozaStoreContext context, string entityName)
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.Name)
                 .NotEmpty()
                 .WithMessage($"{entityName} is required.")

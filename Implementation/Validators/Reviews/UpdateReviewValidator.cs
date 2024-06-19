@@ -13,6 +13,8 @@ namespace Implementation.Validators.Reviews
     {
         public UpdateReviewValidator(CozaStoreContext context)
         {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
             RuleFor(x => x.ReviewText)
                 .NotEmpty()
                 .MinimumLength(5);
