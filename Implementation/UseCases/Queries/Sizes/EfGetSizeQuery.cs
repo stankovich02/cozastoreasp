@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Sizes
 
         public string Name => "Get single Size";
 
+        public string Table => "Sizes";
+
         public SizeDTO Execute(int search)
         {
             return _response.ReturnSingle<Size, SizeDTO>(search, entity => new SizeDTO

@@ -24,6 +24,7 @@ namespace Implementation.UseCases.Commands.Carts
         public int Id => 47;
 
         public string Name => "Delete Product from Cart";
+        public string Table => "Carts";
 
         public void Execute(int data)
         {

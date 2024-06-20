@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Colors
 
         public string Name => "Get single Color";
 
+        public string Table => "Colors";
+
         public ColorDTO Execute(int search)
         {
             return _response.ReturnSingle<Color, ColorDTO>(search, entity => new ColorDTO

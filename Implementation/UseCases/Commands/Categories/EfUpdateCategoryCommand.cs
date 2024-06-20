@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Categories
 
         public string Name => "Update category";
 
+        public string Table => "Categories";
+
         public void Execute(UpdateCategoryDTO data)
         {
            

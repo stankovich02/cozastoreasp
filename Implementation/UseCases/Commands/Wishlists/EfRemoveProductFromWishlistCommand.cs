@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Commands.Wishlists
 
         public string Name => "Remove Product from Wishlist";
 
+        public string Table => "Wishlists";
+
         public void Execute(int data)
         {
             bool productExist = Context.Products.Any(x => x.Id == data && x.IsActive);

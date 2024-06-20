@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Queries.UsersBillingAddresses
 
         public string Name => "Search User billing addresses";
 
+        public string Table => "User billing addresses";
+
         public PagedResponse<UserBillingAddressDTO> Execute(SearchUserBillingAddress search)
         {
             return _response.ReturnPagedResponse<UserBillingAddress, UserBillingAddressDTO, SearchUserBillingAddress>(search, Context, (query, search) =>

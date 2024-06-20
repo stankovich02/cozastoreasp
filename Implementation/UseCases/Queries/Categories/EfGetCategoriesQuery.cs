@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Queries.Categories
 
         public string Name => "Search Categories";
 
+        public string Table => "Categories";
+
         public PagedResponse<CategoryDTO> Execute(SearchCategory search)
         {
             return _response.ReturnPagedResponse<Category, CategoryDTO, SearchCategory>(search, Context ,

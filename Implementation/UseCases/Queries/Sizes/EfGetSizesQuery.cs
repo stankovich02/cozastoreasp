@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Queries.Sizes
 
         public string Name => "Search Sizes";
 
+        public string Table => "Sizes";
+
         public PagedResponse<SizeDTO> Execute(SearchSize search)
         {
             return _response.ReturnPagedResponse<Size, SizeDTO, SearchSize>(search, Context, (query, search) =>

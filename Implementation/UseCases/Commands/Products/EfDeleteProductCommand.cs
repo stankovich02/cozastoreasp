@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.Products
 
         public string Name => "Delete Product";
 
+        public string Table => "Products";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Product>(data, "Product");

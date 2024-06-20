@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Queries.Wishlists
 
         public string Name => "Search Wishlists";
 
+        public string Table => "Wishlists";
+
         public PagedResponse<WishlistDTO> Execute(SearchWishlist search)
         {
             return _response.ReturnPagedResponse<Wishlist, WishlistDTO, SearchWishlist>(search, Context, (query, search) =>

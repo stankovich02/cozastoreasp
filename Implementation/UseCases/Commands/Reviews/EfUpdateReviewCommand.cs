@@ -27,6 +27,8 @@ namespace Implementation.UseCases.Commands.Reviews
 
         public string Name => "Update Review";
 
+        public string Table => "Reviews";
+
         public void Execute(UpdateReviewDTO data)
         {
             _genericUpdateService.UpdateEntity<Review, UpdateReviewDTO, UpdateReviewValidator>(data, _validator,

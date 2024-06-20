@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Users
 
         public string Name => "User image update";
 
+        public string Table => "Users";
+
         public void Execute(UpdateUserImageDTO data)
         {
             User u = Context.Users.Find(_actor.Id);

@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Users
 
         public string Name => "User registration";
 
+        public string Table => "Users";
+
         public void Execute(RegisterUserDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

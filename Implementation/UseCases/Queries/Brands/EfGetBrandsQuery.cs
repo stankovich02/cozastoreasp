@@ -24,6 +24,8 @@ namespace Implementation.UseCases.Queries.Brands
 
         public string Name => "Search Brands";
 
+        public string Table => "Brands";
+
         public PagedResponse<BrandDTO> Execute(SearchBrand search)
         {
 

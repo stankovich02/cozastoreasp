@@ -30,6 +30,8 @@ namespace Implementation.UseCases.Commands.Products
 
         public string Name => "Update Product";
 
+        public string Table => "Products";
+
         public void Execute(UpdateProductDTO data)
         {
             _genericUpdateService.UpdateEntity<Product, UpdateProductDTO, UpdateProductValidator>(data, _validator,

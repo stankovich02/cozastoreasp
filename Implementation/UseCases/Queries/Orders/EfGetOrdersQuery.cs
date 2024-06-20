@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Queries.Orders
 
         public string Name => "Search Orders";
 
+        public string Table => "Orders";
+
         public PagedResponse<OrderDTO> Execute(SearchOrder search)
         {
             return _response.ReturnPagedResponse<Order, OrderDTO, SearchOrder>(search, Context, (query, search) =>

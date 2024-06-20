@@ -21,6 +21,8 @@ namespace Implementation.UseCases.Commands.Reviews
 
         public string Name => "Delete Review";
 
+        public string Table => "Reviews";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Review>(data, "Review");

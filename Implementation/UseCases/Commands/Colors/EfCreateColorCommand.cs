@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Colors
 
         public string Name => "Create Color";
 
+        public string Table => "Colors";
+
         public void Execute(CreateColorDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

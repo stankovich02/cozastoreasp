@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Queries.Products
 
         public string Name => "Search Products";
 
+        public string Table => "Products";
+
         public PagedResponse<ProductDTO> Execute(SearchProduct search)
         {
             return _response.ReturnPagedResponse<Product, ProductDTO, SearchProduct>(search, Context, (query, search) =>

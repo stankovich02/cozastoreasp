@@ -27,6 +27,8 @@ namespace Implementation.UseCases.Queries.Carts
 
         public string Name => "Search Carts";
 
+        public string Table => "Carts";
+
         public PagedResponse<CartDTO> Execute(SearchCart search)
         {
             return _response.ReturnPagedResponse<Cart, CartDTO, SearchCart>(search, Context, (query, search) =>

@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.UsersBillingAddresses
 
         public string Name => "Get single User billing address";
 
+        public string Table => "User billing addresses";
+
         public UserBillingAddressDTO Execute(int search)
         {
             return _response.ReturnSingle<UserBillingAddress, UserBillingAddressDTO>(search, entity => new UserBillingAddressDTO

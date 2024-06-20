@@ -21,6 +21,7 @@ namespace Implementation.UseCases.Commands.Brands
         public int Id => 12;
 
         public string Name => "Delete Brand";
+        public string Table => "Brands";
 
         public void Execute(int data)
         {

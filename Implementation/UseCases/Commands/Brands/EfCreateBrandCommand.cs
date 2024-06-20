@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Brands
 
         public string Name => "Create Brand";
 
+        public string Table => "Brands";
+
         public void Execute(CreateBrandDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

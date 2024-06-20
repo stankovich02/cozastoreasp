@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.UsersBillingAddresses
 
         public string Name => "Create User billing address";
 
+        public string Table => "User billing addresses";
+
         public void Execute(CreateUserBillingAddressDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

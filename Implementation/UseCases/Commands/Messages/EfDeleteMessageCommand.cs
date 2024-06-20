@@ -21,6 +21,8 @@ namespace Implementation.UseCases.Commands.Messages
 
         public string Name => "Delete Message";
 
+        public string Table => "Messages";
+
         public void Execute(int data)
         {
             var message = Context.Messages.Find(data);

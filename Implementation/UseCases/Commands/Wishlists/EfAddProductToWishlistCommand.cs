@@ -30,6 +30,8 @@ namespace Implementation.UseCases.Commands.Wishlists
 
         public string Name => "Add Product to Wishlist";
 
+        public string Table => "Wishlists";
+
         public void Execute(AddProductToWishlistDTO data)
         {
             _validator.ValidateAndThrow(data);

@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Reviews
 
         public string Name => "Create Review";
 
+        public string Table => "Reviews";
+
         public void Execute(CreateReviewDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

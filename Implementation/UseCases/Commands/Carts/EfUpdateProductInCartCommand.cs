@@ -29,6 +29,7 @@ namespace Implementation.UseCases.Commands.Carts
 
         public int Id => 46;
         public string Name => "Update Product in Cart";
+        public string Table => "Carts";
 
         public void Execute(UpdateProductInCartDTO data)
         {

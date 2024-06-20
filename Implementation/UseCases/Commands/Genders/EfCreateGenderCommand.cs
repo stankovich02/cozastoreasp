@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Genders
 
         public string Name => "Create Gender";
 
+        public string Table => "Genders";
+
         public void Execute(CreateGenderDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

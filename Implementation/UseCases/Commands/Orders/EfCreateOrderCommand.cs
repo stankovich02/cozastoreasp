@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Orders
 
         public string Name => "Create Order";
 
+        public string Table => "Orders";
+
         public void Execute(CreateOrderDTO data)
         {
             _validator.ValidateAndThrow(data);

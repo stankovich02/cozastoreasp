@@ -27,6 +27,10 @@ namespace Implementation.UseCases.Queries.Messages
 
         public string Name => "Search Messages";
 
+        public string Table => "Messages";
+
+
+
         public PagedResponse<MessageDTO> Execute(SearchMessage search)
         {
             return _response.ReturnPagedResponse<Message, MessageDTO, SearchMessage>(search, Context, (query, search) =>

@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Products
 
         public string Name => "Get single Product";
 
+        public string Table => "Products";
+
         public ProductDTO Execute(int search)
         {
             return _response.ReturnSingle<Product, ProductDTO>(search, entity => new ProductDTO
@@ -34,7 +36,7 @@ namespace Implementation.UseCases.Queries.Products
                 Sizes = entity.Sizes.Select(x => x.Size.Name).ToList(),
                 Colors = entity.Colors.Select(x => x.Color.Name).ToList(),
                 Description = entity.Description,
-                AverageRating = entity.Reviews.Any() ? x.Reviews.Sum(x => x.Rate) / x.Reviews.Count() : 0,
+                AverageRating = entity.Reviews.Any() ? entity.Reviews.Sum(x => x.Rate) / entity.Reviews.Count() : 0,
                 Discount = entity.Discounts.Where(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive).Select(d => d.DiscountPercent).FirstOrDefault(),
                 Images = entity.Images.Select(x => x.Image.Path).ToList(),
                 InStock = entity.Available > 0,
@@ -44,7 +46,7 @@ namespace Implementation.UseCases.Queries.Products
                 {
                     OldPrice = entity.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive) ? p.ProductPrice : null,
                     ActivePrice =
-                   entity.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive) ? p.ProductPrice - (p.ProductPrice * x.Discounts
+                   entity.Discounts.Any(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow && d.IsActive) ? p.ProductPrice - (p.ProductPrice * entity.Discounts
                                                                                                                                    .Where(d => d.DateFrom <= DateTime.UtcNow && d.DateTo > DateTime.UtcNow)
                                                                                                                                    .Select(d => d.DiscountPercent)
                                                                                                                                    .FirstOrDefault() / 100) : p.ProductPrice

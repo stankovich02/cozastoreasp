@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Sizes
 
         public string Name => "Update Size";
 
+        public string Table => "Sizes";
+
         public void Execute(UpdateSizeDTO data)
         {
             _genericUpdateService.UpdateEntity<Size, UpdateSizeDTO, UpdateSizeValidator>(data, _validator,

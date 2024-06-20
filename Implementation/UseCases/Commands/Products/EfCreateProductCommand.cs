@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Products
 
         public string Name => "Create Product";
 
+        public string Table => "Products";
+
         public void Execute(CreateProductDTO data)
         {
             _validator.ValidateAndThrow(data);

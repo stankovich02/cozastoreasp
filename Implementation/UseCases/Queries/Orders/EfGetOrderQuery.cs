@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Queries.Orders
 
         public string Name => "Get single Order";
 
+        public string Table => "Orders";
+
         public OrderDTO Execute(int search)
         {
             return _response.ReturnSingle<Order, OrderDTO>(search, entity => new OrderDTO

@@ -21,6 +21,8 @@ namespace Implementation.UseCases.Commands.Orders
         public int Id => 50;
         public string Name => "Delete Order";
 
+        public string Table => "Orders";
+
         public void Execute(int data)
         {
             var entity = Context.Orders.Find(data);

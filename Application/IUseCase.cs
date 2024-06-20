@@ -8,5 +8,6 @@ namespace Application
     {
         int Id { get; }
         string Name { get; }
+        string Table { get; }
     }
 }

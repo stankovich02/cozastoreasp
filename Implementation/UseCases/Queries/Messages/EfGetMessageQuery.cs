@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Messages
 
         public string Name => "Get single Message";
 
+        public string Table => "Messages";
+
         public MessageDTO Execute(int search)
         {
             return _response.ReturnSingle<Message, MessageDTO>(search, entity => new MessageDTO

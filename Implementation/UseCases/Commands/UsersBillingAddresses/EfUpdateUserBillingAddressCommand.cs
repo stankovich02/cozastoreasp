@@ -30,6 +30,8 @@ namespace Implementation.UseCases.Commands.UsersBillingAddresses
 
         public string Name => "Update User billing address";
 
+        public string Table => "User billing addresses";
+
         public void Execute(UpdateUserBillingAddressDTO data)
         {
             _genericUpdateService.UpdateEntity<UserBillingAddress, UpdateUserBillingAddressDTO, UpdateUserBillingAddressValidator>(data, _validator,

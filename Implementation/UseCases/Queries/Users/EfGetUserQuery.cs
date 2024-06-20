@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Users
 
         public string Name => "Get single User";
 
+        public string Table => "Users";
+
         public UserDTO Execute(int search)
         {
             return _response.ReturnSingle<User, UserDTO>(search, entity => new UserDTO

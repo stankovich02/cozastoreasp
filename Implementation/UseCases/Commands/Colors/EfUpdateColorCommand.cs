@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Colors
 
         public string Name => "Update Color";
 
+        public string Table => "Colors";
+
         public void Execute(UpdateColorDTO data)
         {
             _genericUpdateService.UpdateEntity<Color, UpdateColorDTO, UpdateColorValidator>(data, _validator,

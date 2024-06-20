@@ -33,6 +33,8 @@ namespace Implementation.UseCases.Commands.Users
 
         public string Name => "User update";
 
+        public string Table => "Users";
+
         public void Execute(UpdateUserDTO data)
         {
             if(data.Id != _actor.Id)

@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.Genders
 
         public string Name => "Delete Gender";
 
+        public string Table => "Genders";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Gender>(data, "Gender");

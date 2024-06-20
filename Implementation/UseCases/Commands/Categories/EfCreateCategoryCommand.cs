@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Commands.Categories
 
         public string Name => "Create category";
 
+        public string Table => "Categories";
+
         public void Execute(CreateCategoryDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

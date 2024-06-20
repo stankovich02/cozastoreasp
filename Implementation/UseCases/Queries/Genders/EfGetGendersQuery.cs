@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Queries.Genders
 
         public string Name => "Search Genders";
 
+        public string Table => "Genders";
+
         public PagedResponse<GenderDTO> Execute(SearchGender search)
         {
             return _response.ReturnPagedResponse<Gender, GenderDTO, SearchGender>(search, Context, (query, search) =>

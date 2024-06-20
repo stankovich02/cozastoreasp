@@ -27,6 +27,8 @@ namespace Implementation.UseCases.Commands.Discounts
 
         public string Name => "Create Discount";
 
+        public string Table => "Discounts";
+
         public void Execute(CreateDiscountDTO data)
         {
             Discount oldDiscount = Context.Discounts.FirstOrDefault(d => d.ProductId == data.ProductId && d.IsActive);

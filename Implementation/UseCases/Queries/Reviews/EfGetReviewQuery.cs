@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Reviews
 
         public string Name => "Get single Review";
 
+        public string Table => "Reviews";
+
         public ReviewDTO Execute(int search)
         {
             return _response.ReturnSingle<Review, ReviewDTO>(search, entity => new ReviewDTO

@@ -27,6 +27,8 @@ namespace Implementation.UseCases.Commands.Discounts
 
         public string Name => "Update Discount";
 
+        public string Table => "Discounts";
+
         public void Execute(UpdateDiscountDTO data)
         {
             _genericUpdateService.UpdateEntity<Discount, UpdateDiscountDTO, UpdateDiscountValidator>(data, _validator,

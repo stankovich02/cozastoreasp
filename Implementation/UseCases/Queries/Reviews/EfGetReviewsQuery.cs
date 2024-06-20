@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Queries.Reviews
 
         public string Name => "Search Reviews";
 
+        public string Table => "Reviews";
+
         public PagedResponse<ReviewDTO> Execute(SearchReview search)
         {
             return _response.ReturnPagedResponse<Review, ReviewDTO, SearchReview>(search, Context, (query, search) =>

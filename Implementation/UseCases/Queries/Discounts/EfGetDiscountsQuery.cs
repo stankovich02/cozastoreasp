@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Discounts
 
         public string Name => "Search Discounts";
 
+        public string Table => "Discounts";
+
         public PagedResponse<DiscountDTO> Execute(SearchDiscount search)
         {
             return _response.ReturnPagedResponse<Discount, DiscountDTO, SearchDiscount>(search, Context, (query, search) =>

@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Brands
         public int Id => 11;
 
         public string Name => "Update Brand";
+        public string Table => "Brands";
+
 
         public void Execute(UpdateBrandDTO data)
         {

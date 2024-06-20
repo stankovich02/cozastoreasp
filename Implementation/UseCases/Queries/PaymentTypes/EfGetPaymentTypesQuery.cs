@@ -27,6 +27,8 @@ namespace Implementation.UseCases.Queries.PaymentTypes
 
         public string Name => "Search Payment Types";
 
+        public string Table => "Payment types";
+
         public PagedResponse<PaymentTypeDTO> Execute(SearchPaymentType search)
         {
             return _response.ReturnPagedResponse<PaymentType, PaymentTypeDTO, SearchPaymentType>(search, Context, (query, search) =>

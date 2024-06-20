@@ -25,6 +25,8 @@ namespace Implementation.UseCases.Commands.Users
 
         public string Name => "Update User Access";
 
+        public string Table => "Users";
+
         public void Execute(UpdateUserAccessDTO data)
         {
             _validator.ValidateAndThrow(data);

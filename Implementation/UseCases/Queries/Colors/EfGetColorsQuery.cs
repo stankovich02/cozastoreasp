@@ -26,6 +26,8 @@ namespace Implementation.UseCases.Queries.Colors
 
         public string Name => "Search Colors";
 
+        public string Table => "Colors";
+
         public PagedResponse<ColorDTO> Execute(SearchColor search)
         {
             return _response.ReturnPagedResponse<Color, ColorDTO, SearchColor>(search, Context, (query, search) =>

@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.Genders
 
         public string Name => "Update Gender";
 
+        public string Table => "Genders";
+
         public void Execute(UpdateGenderDTO data)
         {
             _genericUpdateService.UpdateEntity<Gender, UpdateGenderDTO, UpdateGenderValidator>(data, _validator,

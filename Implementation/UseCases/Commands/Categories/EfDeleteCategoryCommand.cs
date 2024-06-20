@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.Categories
 
         public string Name => "Delete category";
 
+        public string Table => "Categories";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Category>(data,"Category"); 

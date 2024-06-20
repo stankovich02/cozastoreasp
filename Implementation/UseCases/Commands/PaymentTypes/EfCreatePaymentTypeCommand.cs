@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.PaymentTypes
 
         public string Name => "Create Payment Type";
 
+        public string Table => "Payment Types";
+
         public void Execute(CreatePaymentTypeDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

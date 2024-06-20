@@ -24,6 +24,8 @@ namespace Implementation.UseCases.Commands.Messages
 
         public string Name => "Send Message";
 
+        public string Table => "Messages";
+
         public void Execute(CreateMessageDTO data)
         {
             _validator.ValidateAndThrow(data);

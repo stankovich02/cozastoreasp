@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.Sizes
 
         public string Name => "Delete Size";
 
+        public string Table => "Sizes";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Size>(data, "Size");

@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.PaymentTypes
 
         public string Name => "Delete Payment Type";
 
+        public string Table => "Payment Types";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<PaymentType>(data, "Payment Type");

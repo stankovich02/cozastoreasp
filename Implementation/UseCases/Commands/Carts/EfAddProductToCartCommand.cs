@@ -28,6 +28,7 @@ namespace Implementation.UseCases.Commands.Carts
         public int Id => 45;
 
         public string Name => "Add Product to Cart";
+        public string Table => "Carts";
 
         public void Execute(AddProductToCartDTO data)
         {

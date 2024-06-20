@@ -21,6 +21,8 @@ namespace Implementation.UseCases.Commands.Discounts
 
         public string Name => "Delete Discount";
 
+        public string Table => "Discounts";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Discount>(data, "Discount");

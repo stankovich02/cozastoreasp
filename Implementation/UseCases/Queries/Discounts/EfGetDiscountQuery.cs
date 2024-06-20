@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Discounts
 
         public string Name => "Get single Discount";
 
+        public string Table => "Discounts";
+
         public DiscountDTO Execute(int search)
         {
             return _response.ReturnSingle<Discount, DiscountDTO>(search, entity => new DiscountDTO

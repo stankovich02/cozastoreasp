@@ -24,6 +24,7 @@ namespace Implementation.UseCases.Queries.Users
 
         public string Name => "Search Users";
 
+        public string Table => "Users";
         public PagedResponse<UserDTO> Execute(SearchUser search)
         {
             return _response.ReturnPagedResponse<User, UserDTO, SearchUser>(search, Context, (query, search) =>

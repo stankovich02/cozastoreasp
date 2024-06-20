@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Commands.Colors
 
         public string Name => "Delete Color";
 
+        public string Table => "Colors";
+
         public void Execute(int data)
         {
             _genericDeleteService.DeactivateEntity<Color>(data, "Color");

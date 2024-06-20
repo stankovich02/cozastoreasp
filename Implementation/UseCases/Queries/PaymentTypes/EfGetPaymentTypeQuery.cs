@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Queries.PaymentTypes
 
         public string Name => "Get single Payment type";
 
+        public string Table => "Payment types";
+
         public PaymentTypeDTO Execute(int search)
         {
             return _response.ReturnSingle<PaymentType, PaymentTypeDTO>(search, entity => new PaymentTypeDTO

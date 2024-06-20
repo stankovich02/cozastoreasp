@@ -22,6 +22,8 @@ namespace Implementation.UseCases.Queries.Genders
 
         public string Name => "Get single Gender";
 
+        public string Table => "Genders";
+
         public GenderDTO Execute(int search)
         {
             return _response.ReturnSingle<Gender, GenderDTO>(search, entity => new GenderDTO

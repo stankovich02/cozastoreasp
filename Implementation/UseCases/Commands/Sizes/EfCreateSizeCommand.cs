@@ -28,6 +28,8 @@ namespace Implementation.UseCases.Commands.Sizes
 
         public string Name => "Create Size";
 
+        public string Table => "Sizes";
+
         public void Execute(CreateSizeDTO data)
         {
             _genericCreateService.CreateEntity(data, _validator, (data) =>

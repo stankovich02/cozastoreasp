@@ -29,6 +29,8 @@ namespace Implementation.UseCases.Commands.PaymentTypes
 
         public string Name => "Update Payment Type";
 
+        public string Table => "Payment Types";
+
         public void Execute(UpdatePaymentTypeDTO data)
         {
             _genericUpdateService.UpdateEntity<PaymentType, UpdatePaymentTypeDTO, UpdatePaymentTypeValidator>(data, _validator,

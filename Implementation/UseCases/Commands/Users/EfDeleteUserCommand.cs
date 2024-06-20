@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Commands.Users
 
         public string Name => "Removing User";
 
+        public string Table => "Users";
+
         public void Execute(int data)
         {
             User u = Context.Users.Find(data);

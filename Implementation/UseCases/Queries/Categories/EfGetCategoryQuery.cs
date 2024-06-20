@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Categories
 
         public string Name => "Get single Category";
 
+        public string Table => "Categories";
+
         public CategoryDTO Execute(int search)
         {
             return _response.ReturnSingle<Category, CategoryDTO>(search, entity => new CategoryDTO

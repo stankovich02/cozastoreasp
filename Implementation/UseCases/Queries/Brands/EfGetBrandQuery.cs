@@ -23,6 +23,8 @@ namespace Implementation.UseCases.Queries.Brands
 
         public string Name => "Get single Brand";
 
+        public string Table => "Brands";
+
         public BrandDTO Execute(int search)
         {
            return _response.ReturnSingle<Brand, BrandDTO>(search, entity => new BrandDTO
