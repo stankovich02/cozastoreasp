@@ -18,20 +18,6 @@ namespace API.Controllers
             _creator = creator;
         }
 
-        // GET: api/<AuthController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<AuthController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         [HttpPost]
         public IActionResult Post([FromBody] AuthRequest request)
         {
@@ -40,11 +26,6 @@ namespace API.Controllers
             return Ok(new AuthResponse { Token = token });
         }
 
-        // PUT api/<AuthController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
         [Authorize]
         [HttpDelete]
         public IActionResult Delete([FromServices] ITokenStorage storage)

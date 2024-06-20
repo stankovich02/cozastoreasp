@@ -23,7 +23,6 @@ namespace API.Controllers
             _useCaseHandler = useCaseHandler;
         }
         // GET: api/<GendersController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchGender search, [FromServices] IGetGendersQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));

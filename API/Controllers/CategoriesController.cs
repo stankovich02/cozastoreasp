@@ -24,7 +24,6 @@ namespace API.Controllers
         }
 
         // GET: api/<CategoriesController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchCategory search, [FromServices] IGetCategoriesQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));

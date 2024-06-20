@@ -44,6 +44,7 @@ namespace API.Controllers
         }
 
         // PUT api/<ReviewsController>/5
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]UpdateReviewDTO dto, IUpdateReviewCommand command)
         {

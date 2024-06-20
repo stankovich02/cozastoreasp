@@ -58,6 +58,7 @@ namespace API.Controllers
             return StatusCode(StatusCodes.Status204NoContent);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id, [FromServices] IDeleteUserCommand command)
         {
@@ -66,6 +67,7 @@ namespace API.Controllers
             return StatusCode(StatusCodes.Status204NoContent);
         }
 
+        [Authorize]
         [HttpPut("{id}/access")]
         public IActionResult ModifyAccess(int id, [FromBody] UpdateUserAccessDTO dto,
                                                   [FromServices] IUpdateUserAccessCommand command)

@@ -2,6 +2,7 @@
 using Application.UseCases.Commands.Wishlists;
 using Application.UseCases.Queries.Wishlists;
 using Implementation.UseCases;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,11 +21,13 @@ namespace API.Controllers
         }
 
         // GET: api/<WishlistsController>
+        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchWishlist search, [FromServices] IGetWishlistsQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));
 
         // POST api/<WishlistsController>
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] AddProductToWishlistDTO dto,IAddProductToWishlistCommand command)
         {
@@ -34,6 +37,7 @@ namespace API.Controllers
         }
 
         // DELETE api/<WishlistsController>/5
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id, [FromServices] IRemoveProductFromWishlistCommand command)
         {

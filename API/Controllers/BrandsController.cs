@@ -24,7 +24,6 @@ namespace API.Controllers
         }
 
         // GET: api/<BrandsController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchBrand search, [FromServices] IGetBrandsQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));

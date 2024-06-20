@@ -21,16 +21,10 @@ namespace API.Controllers
         }
 
         // GET: api/<CartsController>
+        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchCart search, IGetCartsQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));
-
-        // GET api/<CartsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/<CartsController>
         [Authorize]
@@ -53,6 +47,7 @@ namespace API.Controllers
         }
 
         // DELETE api/<CartsController>/5
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id, [FromServices] IRemoveProductFromCartCommand command)
         {

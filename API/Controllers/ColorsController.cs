@@ -25,7 +25,6 @@ namespace API.Controllers
             _useCaseHandler = useCaseHandler;
         }
         // GET: api/<ColorsController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchColor search, [FromServices] IGetColorsQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));

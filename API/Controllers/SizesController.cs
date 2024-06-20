@@ -24,7 +24,6 @@ namespace API.Controllers
             _useCaseHandler = useCaseHandler;
         }
         // GET: api/<SizesController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchSize search, [FromServices] IGetSizesQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));

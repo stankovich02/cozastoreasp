@@ -23,7 +23,6 @@ namespace API.Controllers
             _useCaseHandler = useCaseHandler;
         }
         // GET: api/<PaymentTypesController>
-        [Authorize]
         [HttpGet]
         public IActionResult Get([FromQuery] SearchPaymentType search, [FromServices] IGetPaymentTypesQuery query)
          => Ok(_useCaseHandler.HandleQuery(query, search));
