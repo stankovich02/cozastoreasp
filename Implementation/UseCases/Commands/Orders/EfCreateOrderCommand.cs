@@ -45,6 +45,7 @@ namespace Implementation.UseCases.Commands.Orders
                                             ProductId = x.Product.Id,
                                             Price = x.ProductPrice
                                         })).ToList();
+            var products = Context.Products.Where(x => data.Products.Select(x => x.ProductId).Contains(x.Id)).ToList();
 
             foreach (var product in data.Products)
             {
@@ -68,7 +69,11 @@ namespace Implementation.UseCases.Commands.Orders
                     Price = productsPrices.Where(y => y.Select(y => y.ProductId).Contains(x.ProductId)).Select(y => y.Select(y => y.Price)).FirstOrDefault().FirstOrDefault()
                 }).ToList()
             };
-            
+            foreach(var product in products)
+            {
+                product.Available -= data.Products.Where(x => x.ProductId == product.Id).Select(x => x.Quantity).FirstOrDefault();
+            }
+          
             Context.Orders.Add(order);
 
             Context.SaveChanges();
