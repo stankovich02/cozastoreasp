@@ -31,19 +31,19 @@ namespace Implementation.UseCases.Queries.Products
         {
             return _response.ReturnPagedResponse<Product, ProductDTO, SearchProduct>(search, Context, (query, search) =>
             {
-                if(!string.IsNullOrEmpty(search.Keyword))
+                if (!string.IsNullOrEmpty(search.Keyword))
                 {
                     query = query.Where(x => x.Name.ToLower().Contains(search.Keyword.ToLower()));
                 }
-                if(search.BrandIds.Count > 0)
+                if (search.BrandIds != null && search.BrandIds.Any())
                 {
                     query = query.Where(x => search.BrandIds.Contains(x.BrandId));
                 }
-                if (search.ColorIds.Count > 0)
+                if (search.ColorIds != null && search.ColorIds.Any())
                 {
                     query = query.Where(x => x.Colors.Any(c => search.ColorIds.Contains(c.ColorId)));
                 }
-                if (search.SizeIds.Count > 0)
+                if (search.SizeIds != null && search.SizeIds.Any())
                 {
                     query = query.Where(x => x.Sizes.Any(s => search.SizeIds.Contains(s.SizeId)));
                 }
@@ -60,6 +60,27 @@ namespace Implementation.UseCases.Queries.Products
                     else
                     {
                         query = query.Where(x => !x.IsActive);
+                    }
+                }
+                if (!string.IsNullOrEmpty(search.Sort))
+                {
+                    switch (search.Sort)
+                    {
+                        case "price-asc":
+                            query = query.OrderBy(x => x.Prices.OrderByDescending(x => x.CreatedAt).FirstOrDefault().ProductPrice);
+                            break;
+                        case "price-desc":
+                            query = query.OrderByDescending(x => x.Prices.OrderByDescending(x => x.CreatedAt).FirstOrDefault().ProductPrice);
+                            break;
+                        case "rating":
+                            query = query.OrderByDescending(x => x.Reviews.Any() ? x.Reviews.Sum(x => x.Rate) / x.Reviews.Count() : 0);
+                            break;
+                        case "latest":
+                            query = query.OrderByDescending(x => x.Id);
+                            break;
+                        default:
+                            query = query.OrderBy(x => x.Id);
+                            break;
                     }
                 }
                 return query;

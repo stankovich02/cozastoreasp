@@ -30,6 +30,7 @@ namespace Implementation.UseCases.Commands.Messages
         {
             _validator.ValidateAndThrow(data);
 
+
             Context.Messages.Add(new Domain.Message
             {
                 Email = data.Email,
