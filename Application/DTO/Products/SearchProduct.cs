@@ -7,7 +7,7 @@ namespace Application.DTO.Products
     public class SearchProduct : PagedSearch
     {
         public string Keyword { get; set; }
-        public string CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public List<int?> BrandIds { get; set; }
         public List<int?> ColorIds { get; set; }
         public List<int?> SizeIds { get; set; }

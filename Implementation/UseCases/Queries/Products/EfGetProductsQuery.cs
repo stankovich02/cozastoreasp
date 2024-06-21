@@ -31,6 +31,26 @@ namespace Implementation.UseCases.Queries.Products
         {
             return _response.ReturnPagedResponse<Product, ProductDTO, SearchProduct>(search, Context, (query, search) =>
             {
+                if(!string.IsNullOrEmpty(search.Keyword))
+                {
+                    query = query.Where(x => x.Name.ToLower().Contains(search.Keyword.ToLower()));
+                }
+                if(search.BrandIds.Count > 0)
+                {
+                    query = query.Where(x => search.BrandIds.Contains(x.BrandId));
+                }
+                if (search.ColorIds.Count > 0)
+                {
+                    query = query.Where(x => x.Colors.Any(c => search.ColorIds.Contains(c.ColorId)));
+                }
+                if (search.SizeIds.Count > 0)
+                {
+                    query = query.Where(x => x.Sizes.Any(s => search.SizeIds.Contains(s.SizeId)));
+                }
+                if (search.CategoryId.HasValue)
+                {
+                    query = query.Where(x => x.CategoryId == search.CategoryId);
+                }
                 if (search.IsActive.HasValue)
                 {
                     if (search.IsActive.Value)

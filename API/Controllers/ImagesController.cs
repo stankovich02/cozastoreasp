@@ -38,7 +38,7 @@ namespace API.Controllers
         //    return "value";
         //}
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post([FromForm] ImageUploadDTO data)
         {
